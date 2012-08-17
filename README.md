@@ -15,15 +15,15 @@ There are a few preliminary steps that you need to do before this script can
 work. First, you need to (obviously) have postgres installed. Additionally, you
 need the plperl package for postgres:
 
-sudo apt-get install postgresql-plperl-<version_num>
+    sudo apt-get install postgresql-plperl-\<version_num\>
 
 And you need to install it on the database. From the command line:
 
-createlang [connection options] plperl [dbname]
+    createlang [connection options] plperl [dbname]
 
 Or from psql, while logged into the database as a superuser:
 
-CREATE LANGUAGE plperl;
+    CREATE LANGUAGE plperl;
 
 Finally, to configure the script, you need to change the value of the DB_ARGS
 string to the command line args you would normally use with psql to connect to
@@ -37,12 +37,12 @@ Usage
 python history-manager.py [options]
 
 History manager accepts five options:
--h: Display help
---enable tablename [table_name [...]]: Enable history logging for all args
---disable tablename [table_name [...]]: Disable history logging for all args
---disableall: Disable history logging for all tables in the
+\n-h: Display help
+\n--enable tablename [table_name [...]]: Enable history logging for all args
+\n--disable tablename [table_name [...]]: Disable history logging for all args
+\n--disableall: Disable history logging for all tables in the
 db
---dump table_name [table_name [...]]: Dump the history table for all args to
+\n--dump table_name [table_name [...]]: Dump the history table for all args to
 disk
 
 How it works
