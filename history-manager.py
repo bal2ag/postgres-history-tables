@@ -26,8 +26,8 @@ def disable_logging(table):
 #Dump the history table corresponding to the table given as an argument to
 #disk, as table_name_histdump.dump
 def make_dump(table):
-    os.system('pg_dump '+DB_ARGS+' -t {0}_hist >'\
-    ' {1}_histdump.dump'.format(table,table)
+    os.system('pg_dump '+DB_ARGS+' -t {0}_hist > {1}_histdump.dump'\
+              .format(table,table))
 
 #Main driver
 def main():
@@ -51,7 +51,7 @@ def main():
     #the necessary functions; they are CREATE OR REPLACE statements so it won't
     #matter if the functions already exist. This will ensure that the rest of
     #this script will never fail if the functions were never created
-    if not (args['enable'] and args['disable'] and args['dump']):
+    if not (args['enable'] or args['disable'] or args['dump']):
         print 'Use --enable, --disable, or --dump! See -h for details.'
         exit(1)
     else:
