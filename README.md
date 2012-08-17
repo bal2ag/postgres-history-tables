@@ -34,16 +34,26 @@ database.
 Usage
 =====
 
-python history-manager.py [options]
+    usage: history-manager.py [-h] [--enable table_name [table_name ...]]
+                          [--disable table_name [table_name ...]]
+                          [--disableall] [--dump table_name [table_name ...]]
 
-History manager accepts five options:
+    Command line tool to manage postgres history tables.
 
-    -h: Display help
-    --enable tablename [table_name [...]]: Enable history logging for all args
-    --disable tablename [table_name [...]]: Disable history logging for all args
-    --disableall: Disable history logging for all tables in the db
-    --dump table_name [table_name [...]]: Dump the history table for all args to
-    disk
+    optional arguments:
+     -h, --help            show this help message and exit
+     --enable table_name [table_name ...]
+                        enable history logging (creates history logging
+                        trigger) for all argument tables
+     --disable table_name [table_name ...]
+                        disable history logging (deletes history logging
+                        trigger) for all argument tables
+    --disableall          disable history logging for all tables in the database
+                        under the "public" schema. Don't use this with other
+                        options.
+    --dump table_name [table_name ...]
+                        dump the history tables corresponding to all argument
+                        tables to disk, as table_name_histdump.dump
 
 How it works
 ============
